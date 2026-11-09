@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build Your Own AI – Workshop</title>
 <style>
-@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/inter.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/inter-italic.woff2) format('woff2')}
+@font-face{font-family:'Red Hat Display';font-style:normal;font-weight:300 900;font-display:swap;src:url(fonts/RedHatDisplay-latin.woff2) format('woff2')}
+@font-face{font-family:'Red Hat Text';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/RedHatText-latin.woff2) format('woff2')}
+@font-face{font-family:'Red Hat Text';font-style:italic;font-weight:300 700;font-display:swap;src:url(fonts/RedHatText-Italic-latin.woff2) format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/jetbrains-mono.woff2) format('woff2')}
 </style>
 <style>
@@ -20,18 +21,18 @@
   --warn:#d97706;--warn-bg:#fffbeb;--warn-bd:#fde68a;
   --blue:#2563eb;--blue-bg:#eff6ff;--blue-bd:#bfdbfe;
   --code-bg:#1e293b;--code-fg:#e2e8f0;
-  --font:'Inter',system-ui,sans-serif;
+  --font:'Red Hat Text',system-ui,'Segoe UI',sans-serif;
+  --font-display:'Red Hat Display','Red Hat Text',system-ui,'Segoe UI',sans-serif;
   --mono:'JetBrains Mono','Fira Code',monospace;
 }
 html,body{width:100%;height:100%;overflow:hidden;background:#0d1117;font-family:var(--font)}
+h1,h2,h3{font-family:var(--font-display)}
 #deck{position:relative;width:100vw;height:100vh}
 .slide{position:absolute;inset:0;display:none;flex-direction:column;background:var(--light)}
 .slide.active{display:flex}
 
 /* Header */
-.hd{display:flex;align-items:center;justify-content:space-between;padding:0 1.6rem;height:52px;min-height:52px;background:var(--navy);flex-shrink:0}
-.hd img.logo-p{height:28px;background:white;padding:2px 7px;border-radius:5px}
-.hd img.logo-l{height:24px}
+.hd{display:flex;align-items:center;justify-content:center;padding:0 1.6rem;height:52px;min-height:52px;background:var(--navy);flex-shrink:0}
 .hd .hd-mid{display:flex;flex-direction:column;align-items:center;line-height:1.2}
 .hd .sec-lbl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .hd .slide-no{font-size:.6rem;color:rgba(255,255,255,.28);font-family:var(--mono)}
@@ -232,9 +233,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 01 TITEL ═══ -->
 <div class="slide t-title active" data-sec="Willkommen">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Build Your Own AI</span><span class="slide-no">01</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <span class="tag">Workshop · 9./10. Klasse · ASG Plettenberg</span>
@@ -254,9 +253,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 02 AGENDA ═══ -->
 <div class="slide t-con" data-sec="Überblick">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Überblick</span><span class="slide-no">02</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was euch heute erwartet</h2>
@@ -303,9 +300,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 03 WAS IST KI ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">03</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was ist Künstliche Intelligenz?</h2>
@@ -382,9 +377,9 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <circle cx="55" cy="64" r="6.5" fill="#bc4e21" opacity=".85"/>
             <circle cx="92" cy="26" r="8" fill="white"/>
             <circle cx="92" cy="54" r="8" fill="white"/>
-            <text x="18" y="76" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif">Input</text>
-            <text x="55" y="76" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif">Lernen</text>
-            <text x="92" y="67" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Inter,sans-serif">Output</text>
+            <text x="18" y="76" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Red Hat Text,sans-serif">Input</text>
+            <text x="55" y="76" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Red Hat Text,sans-serif">Lernen</text>
+            <text x="92" y="67" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Red Hat Text,sans-serif">Output</text>
           </svg>
         </div>
       </div>
@@ -437,9 +432,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 04 VON REGELN ZU MUSTERN ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">04</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Von Regeln zu Mustern</h2>
@@ -474,16 +467,16 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
           <p style="font-size:.7rem;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:.3rem">🗂️ Einordnung: Wo steckt ML drin?</p>
           <svg viewBox="0 0 260 152" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:5px">
             <rect x="0" y="0" width="260" height="152" rx="6" fill="#e8edf8" stroke="none"/>
-            <text x="8" y="14" font-size="10" font-weight="700" font-family="Inter,sans-serif" fill="#1a2550">KI – Künstliche Intelligenz</text>
+            <text x="8" y="14" font-size="10" font-weight="700" font-family="Red Hat Text,sans-serif" fill="#1a2550">KI – Künstliche Intelligenz</text>
             <rect x="6" y="18" width="248" height="126" rx="5" fill="#ccd6ee" stroke="#1a2550" stroke-width="1.2"/>
-            <text x="14" y="31" font-size="9.5" font-weight="600" font-family="Inter,sans-serif" fill="#1a2550">Machine Learning</text>
+            <text x="14" y="31" font-size="9.5" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#1a2550">Machine Learning</text>
             <rect x="14" y="35" width="232" height="101" rx="4" fill="#b2c3e4" stroke="#243166" stroke-width="1.2"/>
-            <text x="22" y="48" font-size="9" font-weight="600" font-family="Inter,sans-serif" fill="#1a2550">Deep Learning</text>
+            <text x="22" y="48" font-size="9" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#1a2550">Deep Learning</text>
             <rect x="22" y="52" width="216" height="76" rx="4" fill="#f5d9c8" stroke="#bc4e21" stroke-width="1.2"/>
-            <text x="30" y="65" font-size="9" font-weight="600" font-family="Inter,sans-serif" fill="#7a2510">Generative KI</text>
+            <text x="30" y="65" font-size="9" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#7a2510">Generative KI</text>
             <rect x="30" y="69" width="200" height="51" rx="4" fill="#bc4e21" stroke="#8a2f10" stroke-width="1.2"/>
-            <text x="130" y="88" font-size="11" font-weight="700" font-family="Inter,sans-serif" fill="white" text-anchor="middle">LLM</text>
-            <text x="130" y="103" font-size="7.5" font-family="Inter,sans-serif" fill="rgba(255,255,255,.9)" text-anchor="middle">ChatGPT · Llama · SmolLM2 (unser Pi-Modell)</text>
+            <text x="130" y="88" font-size="11" font-weight="700" font-family="Red Hat Text,sans-serif" fill="white" text-anchor="middle">LLM</text>
+            <text x="130" y="103" font-size="7.5" font-family="Red Hat Text,sans-serif" fill="rgba(255,255,255,.9)" text-anchor="middle">ChatGPT · Llama · SmolLM2 (unser Pi-Modell)</text>
           </svg>
         </div>
         <div class="ib tip">
@@ -498,9 +491,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 05 WAS IST EIN LLM ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">05</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was ist ein Sprachmodell (LLM)?</h2>
@@ -555,9 +546,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 06 TOKENS ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">06</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Wie „denkt" ein LLM? — Tokens &amp; Wahrscheinlichkeiten</h2>
@@ -628,9 +617,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 07 ÜBUNG MENSCH VS MASCHINE ═══ -->
 <div class="slide t-ex" data-sec="Block 1 · Übung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Übung</span><span class="slide-no">07</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="ex-badge">✏️ Übung 1 — Mensch vs. Maschine</div>
@@ -674,9 +661,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 08 CLOUD VS LOKAL ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">08</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Cloud vs. Lokal — Wo läuft das Modell?</h2>
@@ -716,9 +701,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 09 GRENZEN VON KI ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">09</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was KI kann — und was nicht</h2>
@@ -757,9 +740,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 10 SECTION: HARDWARE ═══ -->
 <div class="slide t-sec" data-sec="Block 1 · Hardware">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">10</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="stripe"></div>
@@ -784,9 +765,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 11 RASPBERRY PI ZERO 2W ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Hardware">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">11</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Der Raspberry Pi Zero 2W</h2>
@@ -824,9 +803,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 12 VERGLEICH PI vs PC ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Hardware">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">12</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Kleiner Computer, große Wirkung</h2>
@@ -886,9 +863,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 13 CHECKLISTE + AUFGABE GEHÄUSE ═══ -->
 <div class="slide t-ex" data-sec="Block 1 · Hardware">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">13</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="ex-badge">🔧 Aufgabe — Zusammenbau</div>
@@ -933,9 +908,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 14 SECTION: SETUP ═══ -->
 <div class="slide t-sec" data-sec="Block 1 · Setup">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">14</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="stripe"></div>
@@ -957,9 +930,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 15 OS FLASHEN 1/2 ═══ -->
 <div class="slide t-img" data-sec="Block 1 · Setup">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">15</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Betriebssystem flashen (1/2) — Raspberry Pi Imager</h2>
@@ -1005,9 +976,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 16 OS FLASHEN 2/2 ═══ -->
 <div class="slide t-img" data-sec="Block 1 · Setup">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">16</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Betriebssystem flashen (2/2) — Einstellungen</h2>
@@ -1053,9 +1022,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 17 SSH ERKLÄRT ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Setup">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">17</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>SSH — Fernzugriff ohne Bildschirm</h2>
@@ -1109,9 +1076,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 18 SYSTEM AKTUALISIEREN ═══ -->
 <div class="slide t-cmd" data-sec="Block 1 · Setup">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">18</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>System aktualisieren — sicher &amp; stabil</h2>
@@ -1155,9 +1120,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 19 BLOCK 1 ZUSAMMENFASSUNG ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Zusammenfassung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Zusammenfassung</span><span class="slide-no">19</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>✅ Block 1 geschafft! — Was ihr jetzt wisst</h2>
@@ -1197,9 +1160,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 20 SECTION OPENER BLOCK 2 ═══ -->
 <div class="slide t-sec" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2</span><span class="slide-no">20</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="stripe"></div>
@@ -1221,9 +1182,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 21 OLLAMA INSTALLIEREN ═══ -->
 <div class="slide t-cmd" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Ollama</span><span class="slide-no">21</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Ollama installieren — ein Befehl reicht</h2>
@@ -1262,9 +1221,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 22 MODELL STARTEN ═══ -->
 <div class="slide t-cmd" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Erstes Chat</span><span class="slide-no">22</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Erstes Modell herunterladen &amp; starten</h2>
@@ -1303,9 +1260,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 23 WAS PASSIERT GERADE ═══ -->
 <div class="slide t-img" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Hardware beobachten</span><span class="slide-no">23</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was passiert gerade im Pi?</h2>
@@ -1344,9 +1299,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 24 TEMPERATUR + THROTTLING ═══ -->
 <div class="slide t-con" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Hardware beobachten</span><span class="slide-no">24</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Wenn der Pi „schwitzt" — Temperatur &amp; Throttling</h2>
@@ -1398,9 +1351,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 25 WAS IST PROMPTING ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Prompting">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Prompting</span><span class="slide-no">25</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was ist Prompting?</h2>
@@ -1451,9 +1402,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 26 ÜBUNG A DEUTSCH VS ENGLISCH ═══ -->
 <div class="slide t-ex" data-sec="Block 2 · Übungen">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Übungen</span><span class="slide-no">26</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="ex-badge">🧪 Übung A — Deutsch vs. Englisch</div>
@@ -1495,9 +1444,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 27 ÜBUNG B PROMPT-QUALITÄT ═══ -->
 <div class="slide t-ex" data-sec="Block 2 · Übungen">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Übungen</span><span class="slide-no">27</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="ex-badge">🧪 Übung B — Prompt-Qualität</div>
@@ -1546,9 +1493,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 28 ÜBUNG C HALLUZINATIONEN ═══ -->
 <div class="slide t-ex" data-sec="Block 2 · Übungen">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Übungen</span><span class="slide-no">28</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="ex-badge">🧪 Übung C — Halluzinationen entlarven</div>
@@ -1598,9 +1543,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 29 WAS HABEN WIR GELERNT ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Reflexion">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Reflexion</span><span class="slide-no">29</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was haben wir heute gelernt?</h2>
@@ -1643,9 +1586,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 30 WAS KANN DER PI NOCH ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Ausblick">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Ausblick</span><span class="slide-no">30</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Was kann der Pi noch? — Projekte &amp; Ideen</h2>
@@ -1684,9 +1625,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 31 KI UND IHR ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Ausblick">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Ausblick</span><span class="slide-no">31</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>KI &amp; Ihr — Was bedeutet das für eure Zukunft?</h2>
@@ -1730,9 +1669,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 32 FAZIT ═══ -->
 <div class="slide t-sec" data-sec="Fazit">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Fazit</span><span class="slide-no">32</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="stripe"></div>
@@ -1755,9 +1692,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 33 DANKE ═══ -->
 <div class="slide t-title" data-sec="Ende">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Build Your Own AI</span><span class="slide-no">33</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <span class="tag">Ende des Workshops</span>
@@ -1779,9 +1714,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 34 SECTION: RESERVE ═══ -->
 <div class="slide t-sec" data-sec="Reserve · Vertiefung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve</span><span class="slide-no">34</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <div class="stripe"></div>
@@ -1804,9 +1737,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 35 WIE LERNT EIN KI-MODELL ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Vertiefung</span><span class="slide-no">35</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Wie lernt ein KI-Modell? — Training vereinfacht</h2>
@@ -1848,9 +1779,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 36 QUANTISIERUNG ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Vertiefung</span><span class="slide-no">36</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Quantisierung — Warum läuft das Modell auf dem Pi?</h2>
@@ -1900,9 +1829,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 37 PI-HOLE VERTIEFUNG ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Vertiefung</span><span class="slide-no">37</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Pi-hole — Werbung im ganzen Netzwerk blockieren</h2>
@@ -1942,9 +1869,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 38 GLOSSAR I ═══ -->
 <div class="slide t-con" data-sec="Reserve · Glossar">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Glossar</span><span class="slide-no">38</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Glossar I — KI &amp; Sprachmodelle</h2>
@@ -1968,9 +1893,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 39 GLOSSAR II ═══ -->
 <div class="slide t-con" data-sec="Reserve · Glossar">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Glossar</span><span class="slide-no">39</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Glossar II — Hardware &amp; Netzwerk</h2>
@@ -1994,9 +1917,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 40 GLOSSAR III ═══ -->
 <div class="slide t-con" data-sec="Reserve · Glossar">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Glossar</span><span class="slide-no">40</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Glossar III — Befehle &amp; Tools</h2>
@@ -2020,9 +1941,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 41 TROUBLESHOOTING ═══ -->
 <div class="slide t-con" data-sec="Reserve · Troubleshooting">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Troubleshooting</span><span class="slide-no">41</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>🛠️ Troubleshooting — Häufige Probleme &amp; Lösungen</h2>
@@ -2085,9 +2004,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 42 MEHR MODELLE ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
-    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Mehr Modelle</span><span class="slide-no">42</span></div>
-    <a href="https://www.linamar.com" target="_blank"><img class="logo-l" src="../../images/logos/linamar-logo.svg" alt="Linamar Plettenberg GmbH"></a>
   </div>
   <div class="bd">
     <h2>Weitere Modelle ausprobieren</h2>
