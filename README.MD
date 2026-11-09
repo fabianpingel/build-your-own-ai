@@ -98,7 +98,7 @@ Die Gehäuse-Dateien zum 3D-Druck findest Du in [`cad/`](cad/).
 
 ## 🧩 Teil einer Workshop-Reihe
 
-Dieser Workshop ist für das [Albert-Schweitzer-Gymnasium Plettenberg](https://www.asg-plettenberg.de/) entwickelt worden und gehört zu einer kleinen Reihe ehrenamtlicher Schul-Workshops von Fabian Pingel. Eine Übersicht über alle Workshops folgt unter [fabianpingel.github.io/workshops](https://fabianpingel.github.io/workshops).
+Dieser Workshop ist für das [Albert-Schweitzer-Gymnasium Plettenberg](https://www.asg-plettenberg.de/) entwickelt worden und gehört zu einer kleinen Reihe ehrenamtlicher Schul-Workshops von Fabian Pingel. Eine Übersicht über alle Workshops findest Du auf [github.com/fabianpingel](https://github.com/fabianpingel).
 
 > 💡 Tipp: Nutzt beim Klick auf Links die rechte Maustaste und dann die Option 'Link in neuem Tab öffnen'. Dann bleibt das Hauptfenster im Browser geöffnet.
 

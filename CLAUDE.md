@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **German-language educational documentation project** — "Build Your Own AI" — a step-by-step tutorial teaching students with no IT background how to run a small language model (SmolLM via Ollama) on a Raspberry Pi Zero 2W. There is no source code to build, compile, or test. All content is Markdown + images + CAD files, plus teacher material.
 
-Repository: `github.com/fabianpingel/build-your-own-ai` (renamed from `ASG`). It is one workshop of a small series of school workshops by Fabian Pingel; the series overview lives in the separate repo `fabianpingel/workshops` (GitHub Pages).
+Repository: `github.com/fabianpingel/build-your-own-ai` (renamed from `ASG`). It is one workshop of a small series of school workshops by Fabian Pingel; the series overview is the GitHub profile README (repo `fabianpingel/fabianpingel`), linked from fabian-pingel.de.
 
 ## Directory Layout
 
