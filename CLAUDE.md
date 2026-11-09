@@ -4,7 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **German-language educational documentation project** — "Build Your Own AI" — a step-by-step tutorial teaching students with no IT background how to run a small language model (SmolLM via Ollama) on a Raspberry Pi Zero 2W. There is no source code to build, compile, or test. All content is Markdown + images + CAD files.
+This is a **German-language educational documentation project** — "Build Your Own AI" — a step-by-step tutorial teaching students with no IT background how to run a small language model (SmolLM via Ollama) on a Raspberry Pi Zero 2W. There is no source code to build, compile, or test. All content is Markdown + images + CAD files, plus teacher material.
+
+Repository: `github.com/fabianpingel/build-your-own-ai` (renamed from `ASG`). It is one workshop of a small series of school workshops by Fabian Pingel; the series overview lives in the separate repo `fabianpingel/workshops` (GitHub Pages).
+
+## Directory Layout
+
+- `docs/` — student-facing chapters (addressed with "Du")
+- `images/` — screenshots and figures, shared by `docs/` and the slides
+- `cad/` — 3D-printable case files (3MF, STL)
+- `lehrkraefte/` — material for whoever runs the workshop:
+  - `lehrkraefte/folien/slides.html` — the presentation, the **single authoritative source** for slides. It references images as `../../images/...` and fonts as `fonts/...` (in `lehrkraefte/folien/fonts/`).
+  - `lehrkraefte/folien/slides-overview.md` — reference/correction document for the slides; may lag behind `slides.html`.
+  - `lehrkraefte/firstboot_package/` — Bash/Python scripts for automatically setting up the classroom Raspberry Pis.
 
 ## No Build System
 
@@ -35,7 +47,8 @@ Images live under `images/` in named subfolders matching the chapter topic (e.g.
 ## Licensing
 
 Documentation (`README.MD`, `docs/*.md`, author-created images): **CC BY-NC 4.0** — non-commercial use only, attribution required.  
-Code/scripts (if added): **MIT License**.  
+Teacher material in `lehrkraefte/folien/` (except the font files): **CC BY-NC 4.0** as well.  
+Code/scripts (e.g. `lehrkraefte/firstboot_package/`): **MIT License**.  
 Third-party logos and brand assets are not covered by these licenses.
 
 When adding content, ensure it respects these terms. Details are in `LICENSE.md`.

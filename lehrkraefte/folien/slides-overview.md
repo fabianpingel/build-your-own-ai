@@ -1,7 +1,7 @@
 # Folienübersicht — Build Your Own AI
 
 > **Hinweis:** Diese Datei ist ein **Referenz- und Korrekturdokument** — keine Quelldatei.  
-> Änderungswünsche hier eintragen → Claude überträgt sie ins `slides.html`.  
+> Änderungswünsche hier eintragen → Claude überträgt sie ins `slides.html` (im selben Ordner).  
 > Die HTML-Datei ist die einzige autoritative Quelle; diese Datei kann veralten.
 
 ---
@@ -593,7 +593,7 @@ vcgencmd measure_temp
 
 - Kontakt: [info@fabian-pingel.de](mailto:info@fabian-pingel.de)
 - Website: [fabian-pingel.de](https://www.fabian-pingel.de)
-- GitHub: [github.com/fabianpingel/ASG](https://github.com/fabianpingel/ASG)
+- GitHub: [github.com/fabianpingel/build-your-own-ai](https://github.com/fabianpingel/build-your-own-ai)
 - Workshop ermöglicht durch **Linamar Plettenberg GmbH** · Fabian Pingel · PINGEL AI Solutions
 
 ---

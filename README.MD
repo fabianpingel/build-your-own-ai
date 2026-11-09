@@ -56,11 +56,25 @@ Das Projekt basiert auf diesem englischsprachigen Tutorial:
 6. [🦙 Ollama installieren](docs/06_ollama.md) 
 7. [💬 Mit Modellen chatten](docs/07_chat.md)
 8. [✍️ Prompts ans Modell senden](docs/08_prompts.md)
-9. [Optional: Pi schneller machen (Swap/Overclocking)](docs/09_optimierung_optional.md)  
+9. Optional: Pi schneller machen (Swap/Overclocking) – *in Vorbereitung*  
 10. [Fazit](docs/10_fazit.md)  
 99. [Glossar](docs/99_glossar.md)
 
 Am Ende der meisten Kapitel findest Du Hilfestellungen  (🛠️ Troubleshooting), wenn etwas mal nicht klappen sollte.
+
+***
+
+
+## 🧑‍🏫 Für Lehrkräfte
+
+Alles, was Du zum **Durchführen** des Workshops brauchst, liegt im Ordner [`lehrkraefte/`](lehrkraefte/):
+
+| Ordner | Inhalt |
+|---|---|
+| [`lehrkraefte/folien/`](lehrkraefte/folien/) | Präsentation `slides.html` (im Browser öffnen) und `slides-overview.md` als Folienübersicht |
+| [`lehrkraefte/firstboot_package/`](lehrkraefte/firstboot_package/) | Skripte, mit denen sich viele Raspberry Pis für die Klasse automatisch einrichten lassen – Anleitung in [`INSTALL.md`](lehrkraefte/firstboot_package/INSTALL.md) |
+
+Die Gehäuse-Dateien zum 3D-Druck findest Du in [`cad/`](cad/).
 
 ***
 
@@ -71,19 +85,20 @@ Am Ende der meisten Kapitel findest Du Hilfestellungen  (🛠️ Troubleshooting
 .
 ├── LICENSE.md
 ├── README.md
-├── images/
-└── docs/
-    ├── 01_basics_llm.md
-    ├── 02_requirements.md
-    ├── 03_os_flashen.md
-    ├── 04_ssh_setup.md
-    ├── 05_updates.md
-    ├── 06_ollama.md
-    ├── 07_chat.md
-    ├── 08_prompts.md
-    ├── 09_TBD.md
-    └── 10_fazit.md
+├── docs/                    ← Anleitung für Schüler:innen (Kapitel 01–10, Glossar)
+├── images/                  ← Screenshots und Abbildungen
+├── cad/                     ← Gehäuse für den 3D-Druck (3MF, STL)
+└── lehrkraefte/             ← Material für die Workshop-Leitung
+    ├── folien/              ← Präsentation inkl. Schriften
+    └── firstboot_package/   ← automatische Einrichtung der Klassen-Pis
 ```
+
+***
+
+
+## 🧩 Teil einer Workshop-Reihe
+
+Dieser Workshop ist für das [Albert-Schweitzer-Gymnasium Plettenberg](https://www.asg-plettenberg.de/) entwickelt worden und gehört zu einer kleinen Reihe ehrenamtlicher Schul-Workshops von Fabian Pingel. Eine Übersicht über alle Workshops folgt unter [fabianpingel.github.io/workshops](https://fabianpingel.github.io/workshops).
 
 > 💡 Tipp: Nutzt beim Klick auf Links die rechte Maustaste und dann die Option 'Link in neuem Tab öffnen'. Dann bleibt das Hauptfenster im Browser geöffnet.
 
