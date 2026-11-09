@@ -7,7 +7,7 @@ Dieses Repository enthält **Unterrichtsmaterial/Dokumentation** (z. B. `READM
 ## 1) Geltungsbereich (Was ist wie lizenziert?)
 
 ### A) 📚 Dokumentation & Unterrichtsmaterial
-Gilt für: `README.md`, alle Dateien in `docs/**`, Arbeitsaufträge, Erklärtexte, Grafiken/Abbildungen **sofern von mir erstellt**.  
+Gilt für: `README.md`, alle Dateien in `docs/**`, das Lehrkraft-Material in `lehrkraefte/folien/` (ohne die Schriftdateien in `fonts/`), Arbeitsaufträge, Erklärtexte, Grafiken/Abbildungen **sofern von mir erstellt**.  
 **Lizenz:** **Creative Commons Attribution–NonCommercial 4.0 International (CC BY‑NC 4.0)**. [1](https://eap.bl.uk/sites/default/files/CC%20BY%20NC%20summary.pdf)[2](https://www.tldrlegal.com/license/creative-commons-attribution-noncommercial-4-0-international-cc-by-nc-4-0)
 
 **Kurz gesagt (was du darfst):**
@@ -27,7 +27,7 @@ Gilt für: `README.md`, alle Dateien in `docs/**`, Arbeitsaufträge, Erklärtext
 ---
 
 ### B) 💻 Code / Skripte / Konfigurationen (falls vorhanden)
-Gilt für: z. B. Dateien in `code/**`, Skripte (`.py`, `.sh`, `.ps1`), Konfigurationen, kleine Tools.  
+Gilt für: z. B. Dateien in `code/**` und `lehrkraefte/firstboot_package/**`, Skripte (`.py`, `.sh`, `.ps1`), Konfigurationen, kleine Tools.  
 **Lizenz:** **MIT License**. [3](https://www.choosingalicense.com/compare)
 
 **Kurz gesagt (was du darfst):**
