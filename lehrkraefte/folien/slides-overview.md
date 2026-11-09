@@ -1,7 +1,7 @@
 # Folienübersicht — Build Your Own AI
 
 > **Hinweis:** Diese Datei ist ein **Referenz- und Korrekturdokument** — keine Quelldatei.  
-> Änderungswünsche hier eintragen → Claude überträgt sie ins `slides.html`.  
+> Änderungswünsche hier eintragen → Claude überträgt sie ins `slides.html` (im selben Ordner).  
 > Die HTML-Datei ist die einzige autoritative Quelle; diese Datei kann veralten.
 
 ---
@@ -89,7 +89,7 @@
 - Bsp. 2: „Wenn E-Mail enthält ‚JETZT KLICKEN' → Spam"
 - Problem: Für Sprache zu viele Ausnahmen
 
-**Machine Learning** (rechts, orange)
+**Machine Learning** (rechts, blau)
 - Das Modell lernt die Regeln selbst aus Beispielen
 - Daten + Ausgaben → Modell
 - Beispiel: Millionen von Texten lesen → Sprache verstehen
@@ -189,7 +189,7 @@
 - Fakten erfinden: Gibt plausible, aber falsche Antworten
 - Quellen: Erfindet Bücher, Links, Autoren
 
-**Halluzinationen** (orange Kachel)
+**Halluzinationen** (blaue Kachel)
 - Das Modell erfindet Dinge, die falsch aber überzeugend klingen
 - Beispiel: Erfindet Zitate berühmter Personen
 - Regel: Wichtige Fakten immer gegenchecken!
@@ -593,7 +593,7 @@ vcgencmd measure_temp
 
 - Kontakt: [info@fabian-pingel.de](mailto:info@fabian-pingel.de)
 - Website: [fabian-pingel.de](https://www.fabian-pingel.de)
-- GitHub: [github.com/fabianpingel/ASG](https://github.com/fabianpingel/ASG)
+- GitHub: [github.com/fabianpingel/build-your-own-ai](https://github.com/fabianpingel/build-your-own-ai)
 - Workshop ermöglicht durch **Linamar Plettenberg GmbH** · Fabian Pingel · PINGEL AI Solutions
 
 ---
@@ -635,7 +635,7 @@ vcgencmd measure_temp
 **Das Problem**
 - SmolLM2 (135 Mio. Parameter) × 4 Byte = **540 MB** — zu groß für 512 MB RAM!
 
-**Die Lösung: Quantisierung** (orange Kachel)
+**Die Lösung: Quantisierung** (blaue Kachel)
 - Zahlen werden weniger genau gespeichert (4-Bit statt 32-Bit)
 - Beispiel Kreisfläche (r = 5 cm):
   - 32-Bit: π = 3,14159265… → A = **78,5398 cm²**
