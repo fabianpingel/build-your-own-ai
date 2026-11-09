@@ -14,7 +14,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#1a2550;--navy2:#243166;--navy3:#0f172a;
-  --orange:#bc4e21;--orange3:#fff5f0;
+  --accent:#2b5fe8;--accent-soft:#e6edff;--accent-dark:#1f4bc2;--accent-light:#8fb0ff;
   --light:#f0f4f8;--white:#fff;
   --gray:#6b7280;--dark:#1f2937;--mid:#374151;
   --green:#16a34a;--green-bg:#f0fdf4;--green-bd:#bbf7d0;
@@ -27,19 +27,23 @@
 }
 html,body{width:100%;height:100%;overflow:hidden;background:#0d1117;font-family:var(--font)}
 h1,h2,h3{font-family:var(--font-display)}
+/* Auf dunklen Flächen das helle Markenblau (wie auf fabian-pingel.de) */
+.slide.t-title,.slide.t-sec,.slide.t-cmd,.card.navy{--accent:var(--accent-light)}
 #deck{position:relative;width:100vw;height:100vh}
 .slide{position:absolute;inset:0;display:none;flex-direction:column;background:var(--light)}
 .slide.active{display:flex}
 
 /* Header */
-.hd{display:flex;align-items:center;justify-content:center;padding:0 1.6rem;height:52px;min-height:52px;background:var(--navy);flex-shrink:0}
+.hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 1.6rem;height:52px;min-height:52px;background:var(--navy);flex-shrink:0}
+.hd>a{justify-self:start;display:flex}
+.hd img.logo-p{height:28px;background:white;padding:2px 7px;border-radius:5px}
 .hd .hd-mid{display:flex;flex-direction:column;align-items:center;line-height:1.2}
 .hd .sec-lbl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .hd .slide-no{font-size:.6rem;color:rgba(255,255,255,.28);font-family:var(--mono)}
 
 /* Progress */
 #prog{position:fixed;top:52px;left:0;right:0;height:3px;background:var(--navy2);z-index:500}
-#prog-fill{height:100%;background:var(--orange);transition:width .25s ease;width:0%}
+#prog-fill{height:100%;background:var(--accent);transition:width .25s ease;width:0%}
 
 /* Body */
 .bd{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative}
@@ -48,12 +52,12 @@ h1,h2,h3{font-family:var(--font-display)}
 .slide.t-title{background:var(--navy3)}
 .slide.t-title .hd{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
 .slide.t-title .bd{align-items:center;justify-content:center;text-align:center;padding:2rem 5rem;gap:1.1rem}
-.t-title .tag{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.t-title .tag{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .t-title h1{font-size:clamp(2.4rem,4.8vw,4.2rem);font-weight:900;color:var(--white);line-height:1.05}
-.t-title h1 em{color:var(--orange);font-style:normal}
+.t-title h1 em{color:var(--accent);font-style:normal}
 .t-title .sub{font-size:clamp(.9rem,1.7vw,1.3rem);color:rgba(255,255,255,.65);max-width:700px;line-height:1.55}
 .t-title .meta{font-size:.82rem;color:rgba(255,255,255,.35);margin-top:.3rem}
-.t-title hr{width:56px;border:none;border-top:3px solid var(--orange);margin:.2rem auto}
+.t-title hr{width:56px;border:none;border-top:3px solid var(--accent);margin:.2rem auto}
 .t-title .chips{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
 .t-title .chip{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);padding:.25rem .8rem;border-radius:20px;font-size:.78rem;border:1px solid rgba(255,255,255,.12)}
 a.chip{text-decoration:none;transition:background .2s,color .2s}
@@ -65,9 +69,9 @@ a.chip:hover{background:rgba(255,255,255,.18);color:white}
 .slide.t-sec{background:var(--navy)}
 .slide.t-sec .hd{background:rgba(255,255,255,.04)}
 .slide.t-sec .bd{flex-direction:row}
-.t-sec .stripe{width:7px;background:var(--orange);flex-shrink:0}
+.t-sec .stripe{width:7px;background:var(--accent);flex-shrink:0}
 .t-sec .sec-in{flex:1;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 4rem;gap:.9rem}
-.t-sec .blk{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+.t-sec .blk{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
 .t-sec h2{font-size:clamp(1.9rem,3.8vw,3.2rem);font-weight:900;color:white;line-height:1.1}
 .t-sec .desc{font-size:1rem;color:rgba(255,255,255,.6);max-width:600px;line-height:1.65}
 .t-sec .s-chips{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.3rem}
@@ -76,16 +80,16 @@ a.chip:hover{background:rgba(255,255,255,.18);color:white}
 
 /* ── CONTENT ── */
 .slide.t-con .bd{padding:1.8rem 2.4rem 1.4rem;gap:1rem}
-.t-con h2,.t-cmd h2,.t-ex h2,.t-img h2{font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:800;color:var(--navy);border-left:5px solid var(--orange);padding-left:.75rem;line-height:1.2;flex-shrink:0}
+.t-con h2,.t-cmd h2,.t-ex h2,.t-img h2{font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:800;color:var(--navy);border-left:5px solid var(--accent);padding-left:.75rem;line-height:1.2;flex-shrink:0}
 .t-cmd h2{color:white}
-.t-ex h2{color:var(--orange);border-color:var(--orange)}
+.t-ex h2{color:var(--accent);border-color:var(--accent)}
 .sub-h{font-size:.82rem;color:var(--gray);padding-left:.75rem;margin-top:-.7rem;flex-shrink:0}
 
 /* ── EXERCISE ── */
-.slide.t-ex{background:#fffcf9}
+.slide.t-ex{background:#f8faff}
 .slide.t-ex .bd{padding:1.6rem 2.4rem 1.4rem;gap:.85rem}
-.ex-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--orange);color:white;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:20px;width:fit-content}
-.ex-box{background:white;border:2px solid var(--orange);border-radius:12px;padding:1rem 1.3rem}
+.ex-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--accent);color:white;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:20px;width:fit-content}
+.ex-box{background:white;border:2px solid var(--accent);border-radius:12px;padding:1rem 1.3rem}
 .obs-box{background:var(--warn-bg);border:2px solid var(--warn);border-radius:12px;padding:.9rem 1.2rem}
 
 /* ── COMMAND ── */
@@ -103,9 +107,9 @@ a.chip:hover{background:rgba(255,255,255,.18);color:white}
 .card.navy{background:var(--navy);border-color:transparent}
 .card.navy h3{color:white}
 .card.navy p,.card.navy li{color:rgba(255,255,255,.82)}
-.card.orange{background:var(--orange);border-color:transparent}
-.card.orange h3,.card.orange p{color:white}
-.card.ol{background:#fff5f0;border:1px solid #f5c9b3}
+.card.accent{background:var(--accent);border-color:transparent}
+.card.accent h3,.card.accent p{color:white}
+.card.ol{background:#e6edff;border:1px solid #c7d6ff}
 .card.gl{background:var(--green-bg);border:1px solid var(--green-bd)}
 .card.bl{background:var(--blue-bg);border:1px solid var(--blue-bd)}
 .card.yl{background:var(--warn-bg);border:1px solid var(--warn-bd)}
@@ -113,7 +117,7 @@ a.chip:hover{background:rgba(255,255,255,.18);color:white}
 /* ── LISTS ── */
 ul.bl{list-style:none;display:flex;flex-direction:column;gap:.42rem}
 ul.bl li{display:flex;align-items:flex-start;gap:.5rem;font-size:.88rem;line-height:1.5;color:var(--dark)}
-ul.bl li::before{content:"▸";color:var(--orange);flex-shrink:0;margin-top:.05rem}
+ul.bl li::before{content:"▸";color:var(--accent);flex-shrink:0;margin-top:.05rem}
 ul.bl.lg li{font-size:.98rem}
 ul.bl.sm li{font-size:.78rem}
 ul.cl{list-style:none;display:flex;flex-direction:column;gap:.42rem}
@@ -154,11 +158,11 @@ table.dt{width:100%;border-collapse:collapse;font-size:.84rem}
 table.dt th{background:var(--navy);color:white;padding:.5rem .85rem;text-align:left;font-weight:600;font-size:.8rem}
 table.dt td{padding:.48rem .85rem;border-bottom:1px solid rgba(0,0,0,.07);color:var(--dark)}
 table.dt tr:nth-child(even) td{background:rgba(0,0,0,.025)}
-table.dt tr.hi td{background:rgba(188,78,33,.1);font-weight:600;color:var(--orange)}
+table.dt tr.hi td{background:rgba(43,95,232,.1);font-weight:600;color:var(--accent)}
 .card.navy table.dt th{background:rgba(255,255,255,.18);color:white;border-bottom:1px solid rgba(255,255,255,.15)}
 .card.navy table.dt td{color:rgba(255,255,255,.85);border-bottom-color:rgba(255,255,255,.1)}
 .card.navy table.dt tr:nth-child(even) td{background:rgba(255,255,255,.06)}
-.card.navy table.dt tr.hi td{background:rgba(188,78,33,.4);color:#ffcdb8;font-weight:600}
+.card.navy table.dt tr.hi td{background:rgba(43,95,232,.4);color:#c7d6ff;font-weight:600}
 
 /* ── TOKENS ── */
 .tok-row{display:flex;gap:.32rem;flex-wrap:wrap;align-items:center}
@@ -171,20 +175,20 @@ table.dt tr.hi td{background:rgba(188,78,33,.1);font-weight:600;color:var(--oran
 
 /* ── GLOSSARY ── */
 .gl-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;flex:1;overflow:auto}
-.gl-item{background:white;border-radius:8px;padding:.6rem .8rem;border-left:3px solid var(--orange)}
+.gl-item{background:white;border-radius:8px;padding:.6rem .8rem;border-left:3px solid var(--accent)}
 .gl-item dt{font-weight:700;font-size:.82rem;color:var(--navy)}
 .gl-item dd{font-size:.74rem;color:var(--gray);margin-top:.08rem;line-height:1.4}
 
 /* ── STAT ── */
 .stat{background:var(--navy);color:white;border-radius:12px;padding:.9rem 1.1rem;text-align:center}
-.stat .n{font-size:2.1rem;font-weight:900;color:var(--orange);display:block;line-height:1}
+.stat .n{font-size:2.1rem;font-weight:900;color:var(--accent);display:block;line-height:1}
 .stat .l{font-size:.73rem;color:rgba(255,255,255,.58);margin-top:.22rem}
 
 /* ── STEP FLOW ── */
 .flow{display:flex;align-items:center;gap:.38rem;flex-wrap:wrap}
 .fbox{background:var(--navy);color:white;border-radius:7px;padding:.42rem .7rem;font-size:.76rem;font-weight:600;text-align:center;white-space:nowrap}
-.fbox.o{background:var(--orange)}
-.farr{color:var(--orange);font-size:1.05rem;font-weight:700}
+.fbox.o{background:var(--accent)}
+.farr{color:var(--accent);font-size:1.05rem;font-weight:700}
 
 /* ── IMAGE ── */
 .img-wrap{display:flex;align-items:center;justify-content:center;flex:1;min-height:0}
@@ -193,9 +197,9 @@ table.dt tr.hi td{background:rgba(188,78,33,.1);font-weight:600;color:var(--oran
 /* ── UTIL ── */
 code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82em;padding:.04em .28em;border-radius:4px}
 .slide.t-cmd code,.slide.t-title code{background:rgba(255,255,255,.1);color:#93c5fd}
-.kw{background:rgba(188,78,33,.12);color:var(--orange);font-weight:700;padding:0 .2em;border-radius:3px}
+.kw{background:rgba(43,95,232,.12);color:var(--accent);font-weight:700;padding:0 .2em;border-radius:3px}
 .kw2{background:rgba(26,37,80,.1);color:var(--navy);font-weight:700;padding:0 .2em;border-radius:3px}
-.clr-o{color:var(--orange)}.clr-n{color:var(--navy)}.clr-g{color:var(--green)}
+.clr-o{color:var(--accent)}.clr-n{color:var(--navy)}.clr-g{color:var(--green)}
 .txt-c{text-align:center}.txt-sm{font-size:.82rem}.txt-xs{font-size:.72rem}.txt-muted{color:var(--gray)}
 .fw7{font-weight:700}.fw8{font-weight:800}.flex-shrink-0{flex-shrink:0}
 .img-row{display:flex;gap:.8rem;align-items:flex-start;flex:1;min-height:0}
@@ -206,7 +210,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 .slider-footer{display:flex;align-items:center;justify-content:center;gap:.6rem}
 .slider-dots{display:flex;gap:.4rem;align-items:center}
 .s-dot{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.2);cursor:pointer;transition:background .3s;border:none;padding:0;flex-shrink:0}
-.s-dot.active{background:var(--orange)}
+.s-dot.active{background:var(--accent)}
 .slider-lbl{font-size:.65rem;color:var(--gray)}
 .img-row img{flex:1;min-width:0;max-height:100%;object-fit:contain;border-radius:7px;box-shadow:0 3px 12px rgba(0,0,0,.15)}
 .caption{font-size:.72rem;color:var(--gray);text-align:center;margin-top:.3rem}
@@ -233,6 +237,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 01 TITEL ═══ -->
 <div class="slide t-title active" data-sec="Willkommen">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Build Your Own AI</span><span class="slide-no">01</span></div>
   </div>
   <div class="bd">
@@ -253,6 +258,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 02 AGENDA ═══ -->
 <div class="slide t-con" data-sec="Überblick">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Überblick</span><span class="slide-no">02</span></div>
   </div>
   <div class="bd">
@@ -268,7 +274,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <li>Betriebssystem aufsetzen &amp; verbinden</li>
           </ul>
         </div>
-        <div class="card" style="border:2px solid var(--orange);opacity:.7">
+        <div class="card" style="border:2px solid var(--accent);opacity:.7">
           <h3>🟠 Block 2 — Nächste Woche <span style="font-weight:400;color:var(--gray);font-size:.8rem">(KI in Aktion, ~90 Min)</span></h3>
           <ul class="bl sm" style="margin-top:.5rem">
             <li>Ollama installieren (ein Befehl!)</li>
@@ -300,6 +306,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 03 WAS IST KI ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">03</span></div>
   </div>
   <div class="bd">
@@ -308,7 +315,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 
       <!-- Karte 1: Was KI nicht ist -->
       <div class="card ol" style="display:flex;flex-direction:column;gap:.42rem">
-        <h3>❌ Was KI <em style="color:var(--orange)">nicht</em> ist</h3>
+        <h3>❌ Was KI <em style="color:var(--accent)">nicht</em> ist</h3>
         <ul class="bl sm">
           <li>Kein denkender Roboter aus dem Film</li>
           <li>Kein allwissendes Gehirn</li>
@@ -318,16 +325,16 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
         <div style="text-align:center;margin-top:auto;padding-top:.3rem">
           <svg viewBox="0 0 100 88" xmlns="http://www.w3.org/2000/svg" style="height:72px;width:auto;opacity:.9">
             <line x1="50" y1="4" x2="50" y2="14" stroke="#1a2550" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="50" cy="2" r="3.5" fill="#bc4e21"/>
+            <circle cx="50" cy="2" r="3.5" fill="#2b5fe8"/>
             <rect x="27" y="14" width="46" height="28" rx="7" fill="#1a2550"/>
             <circle cx="39" cy="26" r="6" fill="#243166"/><circle cx="61" cy="26" r="6" fill="#243166"/>
-            <circle cx="39" cy="26" r="4" fill="#bc4e21"/><circle cx="61" cy="26" r="4" fill="#bc4e21"/>
+            <circle cx="39" cy="26" r="4" fill="#2b5fe8"/><circle cx="61" cy="26" r="4" fill="#2b5fe8"/>
             <circle cx="40" cy="25" r="1.6" fill="white"/><circle cx="62" cy="25" r="1.6" fill="white"/>
-            <rect x="35" y="36" width="30" height="3" rx="1.5" fill="#bc4e21" opacity=".8"/>
+            <rect x="35" y="36" width="30" height="3" rx="1.5" fill="#2b5fe8" opacity=".8"/>
             <rect x="44" y="42" width="12" height="5" rx="2" fill="#243166"/>
             <rect x="20" y="47" width="60" height="30" rx="7" fill="#243166"/>
             <rect x="29" y="53" width="42" height="16" rx="4" fill="#0f172a"/>
-            <polyline points="32,61 36,56 40,64 44,53 48,61 52,58 56,65 60,56 64,61 67,61" fill="none" stroke="#bc4e21" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="32,61 36,56 40,64 44,53 48,61 52,58 56,65 60,56 64,61 67,61" fill="none" stroke="#2b5fe8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             <rect x="6" y="51" width="12" height="20" rx="5" fill="#243166"/>
             <rect x="82" y="51" width="12" height="20" rx="5" fill="#243166"/>
             <rect x="5" y="72" width="14" height="6" rx="3" fill="#1a2550"/>
@@ -349,17 +356,17 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
         </ul>
         <div style="text-align:center;margin-top:auto;padding-top:.3rem">
           <svg viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg" style="height:68px;width:auto">
-            <line x1="18" y1="16" x2="55" y2="10" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="16" x2="55" y2="28" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="16" x2="55" y2="46" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="16" x2="55" y2="64" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="40" x2="55" y2="10" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="40" x2="55" y2="28" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="40" x2="55" y2="46" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="40" x2="55" y2="64" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="64" x2="55" y2="28" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="64" x2="55" y2="46" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
-            <line x1="18" y1="64" x2="55" y2="64" stroke="#bc4e21" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="16" x2="55" y2="10" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="16" x2="55" y2="28" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="16" x2="55" y2="46" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="16" x2="55" y2="64" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="40" x2="55" y2="10" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="40" x2="55" y2="28" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="40" x2="55" y2="46" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="40" x2="55" y2="64" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="64" x2="55" y2="28" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="64" x2="55" y2="46" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
+            <line x1="18" y1="64" x2="55" y2="64" stroke="#2b5fe8" stroke-width="1.2" opacity=".55"/>
             <line x1="55" y1="10" x2="92" y2="26" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
             <line x1="55" y1="28" x2="92" y2="26" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
             <line x1="55" y1="46" x2="92" y2="26" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
@@ -371,10 +378,10 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <circle cx="18" cy="16" r="6.5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
             <circle cx="18" cy="40" r="6.5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
             <circle cx="18" cy="64" r="6.5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
-            <circle cx="55" cy="10" r="6.5" fill="#bc4e21" opacity=".85"/>
-            <circle cx="55" cy="28" r="6.5" fill="#bc4e21" opacity=".85"/>
-            <circle cx="55" cy="46" r="6.5" fill="#bc4e21" opacity=".85"/>
-            <circle cx="55" cy="64" r="6.5" fill="#bc4e21" opacity=".85"/>
+            <circle cx="55" cy="10" r="6.5" fill="#2b5fe8" opacity=".85"/>
+            <circle cx="55" cy="28" r="6.5" fill="#2b5fe8" opacity=".85"/>
+            <circle cx="55" cy="46" r="6.5" fill="#2b5fe8" opacity=".85"/>
+            <circle cx="55" cy="64" r="6.5" fill="#2b5fe8" opacity=".85"/>
             <circle cx="92" cy="26" r="8" fill="white"/>
             <circle cx="92" cy="54" r="8" fill="white"/>
             <text x="18" y="76" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.45)" font-family="Red Hat Text,sans-serif">Input</text>
@@ -432,6 +439,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 04 VON REGELN ZU MUSTERN ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">04</span></div>
   </div>
   <div class="bd">
@@ -455,7 +463,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
         </div>
       </div>
       <div class="fc">
-        <div class="card orange" style="flex:1">
+        <div class="card accent" style="flex:1">
           <h3>🧠 Machine Learning</h3>
           <p style="margin-bottom:.6rem;color:rgba(255,255,255,.82)">Das Modell <strong>lernt die Regeln selbst</strong> aus Beispielen:</p>
           <div class="flow" style="margin-bottom:.7rem">
@@ -472,9 +480,9 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <text x="14" y="31" font-size="9.5" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#1a2550">Machine Learning</text>
             <rect x="14" y="35" width="232" height="101" rx="4" fill="#b2c3e4" stroke="#243166" stroke-width="1.2"/>
             <text x="22" y="48" font-size="9" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#1a2550">Deep Learning</text>
-            <rect x="22" y="52" width="216" height="76" rx="4" fill="#f5d9c8" stroke="#bc4e21" stroke-width="1.2"/>
-            <text x="30" y="65" font-size="9" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#7a2510">Generative KI</text>
-            <rect x="30" y="69" width="200" height="51" rx="4" fill="#bc4e21" stroke="#8a2f10" stroke-width="1.2"/>
+            <rect x="22" y="52" width="216" height="76" rx="4" fill="#dce6ff" stroke="#2b5fe8" stroke-width="1.2"/>
+            <text x="30" y="65" font-size="9" font-weight="600" font-family="Red Hat Text,sans-serif" fill="#1f4bc2">Generative KI</text>
+            <rect x="30" y="69" width="200" height="51" rx="4" fill="#2b5fe8" stroke="#1f4bc2" stroke-width="1.2"/>
             <text x="130" y="88" font-size="11" font-weight="700" font-family="Red Hat Text,sans-serif" fill="white" text-anchor="middle">LLM</text>
             <text x="130" y="103" font-size="7.5" font-family="Red Hat Text,sans-serif" fill="rgba(255,255,255,.9)" text-anchor="middle">ChatGPT · Llama · SmolLM2 (unser Pi-Modell)</text>
           </svg>
@@ -491,6 +499,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 05 WAS IST EIN LLM ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">05</span></div>
   </div>
   <div class="bd">
@@ -546,6 +555,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 06 TOKENS ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">06</span></div>
   </div>
   <div class="bd">
@@ -578,9 +588,9 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <div style="display:flex;align-items:center;gap:.6rem">
               <span style="font-family:var(--mono);font-size:.75rem;color:rgba(255,255,255,.9);min-width:70px">„Berlin"</span>
               <div style="flex:1;background:rgba(255,255,255,.1);border-radius:4px;height:18px;overflow:hidden">
-                <div style="width:87%;height:100%;background:var(--orange);border-radius:4px"></div>
+                <div style="width:87%;height:100%;background:var(--accent);border-radius:4px"></div>
               </div>
-              <span style="font-size:.75rem;color:var(--orange);font-weight:700;min-width:35px">87%</span>
+              <span style="font-size:.75rem;color:var(--accent);font-weight:700;min-width:35px">87%</span>
             </div>
             <div style="display:flex;align-items:center;gap:.6rem">
               <span style="font-family:var(--mono);font-size:.75rem;color:rgba(255,255,255,.9);min-width:70px">„München"</span>
@@ -617,6 +627,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 07 ÜBUNG MENSCH VS MASCHINE ═══ -->
 <div class="slide t-ex" data-sec="Block 1 · Übung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Übung</span><span class="slide-no">07</span></div>
   </div>
   <div class="bd">
@@ -661,6 +672,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 08 CLOUD VS LOKAL ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">08</span></div>
   </div>
   <div class="bd">
@@ -701,6 +713,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 09 GRENZEN VON KI ═══ -->
 <div class="slide t-con" data-sec="Block 1 · KI-Basics">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · KI-Basics</span><span class="slide-no">09</span></div>
   </div>
   <div class="bd">
@@ -740,6 +753,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 10 SECTION: HARDWARE ═══ -->
 <div class="slide t-sec" data-sec="Block 1 · Hardware">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">10</span></div>
   </div>
   <div class="bd">
@@ -765,6 +779,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 11 RASPBERRY PI ZERO 2W ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Hardware">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">11</span></div>
   </div>
   <div class="bd">
@@ -803,6 +818,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 12 VERGLEICH PI vs PC ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Hardware">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">12</span></div>
   </div>
   <div class="bd">
@@ -863,6 +879,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 13 CHECKLISTE + AUFGABE GEHÄUSE ═══ -->
 <div class="slide t-ex" data-sec="Block 1 · Hardware">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Hardware</span><span class="slide-no">13</span></div>
   </div>
   <div class="bd">
@@ -908,6 +925,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 14 SECTION: SETUP ═══ -->
 <div class="slide t-sec" data-sec="Block 1 · Setup">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">14</span></div>
   </div>
   <div class="bd">
@@ -930,6 +948,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 15 OS FLASHEN 1/2 ═══ -->
 <div class="slide t-img" data-sec="Block 1 · Setup">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">15</span></div>
   </div>
   <div class="bd">
@@ -976,6 +995,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 16 OS FLASHEN 2/2 ═══ -->
 <div class="slide t-img" data-sec="Block 1 · Setup">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">16</span></div>
   </div>
   <div class="bd">
@@ -1022,6 +1042,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 17 SSH ERKLÄRT ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Setup">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">17</span></div>
   </div>
   <div class="bd">
@@ -1030,7 +1051,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
       <div class="fc">
         <div class="card navy" style="flex:1">
           <h3>🖥️ Was bedeutet „Headless"?</h3>
-          <p>Der Raspberry Pi hat keinen eigenen Bildschirm und keine Tastatur angeschlossen. Er läuft „kopflos" (<span style="color:var(--orange);font-weight:700">headless</span>).</p>
+          <p>Der Raspberry Pi hat keinen eigenen Bildschirm und keine Tastatur angeschlossen. Er läuft „kopflos" (<span style="color:var(--accent);font-weight:700">headless</span>).</p>
           <p style="margin-top:.5rem;color:rgba(255,255,255,.75)">Wir bedienen ihn komplett über das Netzwerk — von eurem Computer aus.</p>
         </div>
         <div class="card gl">
@@ -1076,6 +1097,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 18 SYSTEM AKTUALISIEREN ═══ -->
 <div class="slide t-cmd" data-sec="Block 1 · Setup">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Setup</span><span class="slide-no">18</span></div>
   </div>
   <div class="bd">
@@ -1120,6 +1142,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 19 BLOCK 1 ZUSAMMENFASSUNG ═══ -->
 <div class="slide t-con" data-sec="Block 1 · Zusammenfassung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 1 · Zusammenfassung</span><span class="slide-no">19</span></div>
   </div>
   <div class="bd">
@@ -1136,7 +1159,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <li>Was Halluzinationen sind</li>
           </ul>
         </div>
-        <div class="card orange" style="flex:1">
+        <div class="card accent" style="flex:1">
           <h3>🔧 Praxis</h3>
           <ul class="cl">
             <li>Raspberry Pi Zero 2W kennen und zusammengebaut</li>
@@ -1160,6 +1183,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 20 SECTION OPENER BLOCK 2 ═══ -->
 <div class="slide t-sec" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2</span><span class="slide-no">20</span></div>
   </div>
   <div class="bd">
@@ -1182,6 +1206,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 21 OLLAMA INSTALLIEREN ═══ -->
 <div class="slide t-cmd" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Ollama</span><span class="slide-no">21</span></div>
   </div>
   <div class="bd">
@@ -1221,6 +1246,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 22 MODELL STARTEN ═══ -->
 <div class="slide t-cmd" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Erstes Chat</span><span class="slide-no">22</span></div>
   </div>
   <div class="bd">
@@ -1260,6 +1286,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 23 WAS PASSIERT GERADE ═══ -->
 <div class="slide t-img" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Hardware beobachten</span><span class="slide-no">23</span></div>
   </div>
   <div class="bd">
@@ -1299,6 +1326,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 24 TEMPERATUR + THROTTLING ═══ -->
 <div class="slide t-con" data-sec="Block 2 · KI in Aktion">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Hardware beobachten</span><span class="slide-no">24</span></div>
   </div>
   <div class="bd">
@@ -1323,7 +1351,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
             <tr><th>Temperatur</th><th>Status</th></tr>
             <tr><td>40–50°C</td><td style="color:var(--green)">✅ Ruhezustand, normal</td></tr>
             <tr><td>60–75°C</td><td style="color:var(--warn)">⚠️ Unter Last, ok</td></tr>
-            <tr><td>&gt; 80°C</td><td style="color:var(--orange)">🔥 Throttling beginnt</td></tr>
+            <tr><td>&gt; 80°C</td><td style="color:var(--accent)">🔥 Throttling beginnt</td></tr>
             <tr><td>&gt; 85°C</td><td style="color:#ef4444">🚨 Starkes Throttling</td></tr>
           </table>
         </div>
@@ -1351,6 +1379,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 25 WAS IST PROMPTING ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Prompting">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Prompting</span><span class="slide-no">25</span></div>
   </div>
   <div class="bd">
@@ -1359,8 +1388,8 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
       <div class="fc">
         <div class="card navy" style="flex:1">
           <h3>✍️ Definition</h3>
-          <p>Ein <span style="color:var(--orange);font-weight:700">Prompt</span> ist die Eingabe, die ihr an das Modell schickt.</p>
-          <p style="margin-top:.5rem;color:rgba(255,255,255,.8)"><span style="color:var(--orange);font-weight:700">Prompting</span> ist die Kunst, das Modell so anzuweisen, dass es die bestmögliche Antwort liefert.</p>
+          <p>Ein <span style="color:var(--accent);font-weight:700">Prompt</span> ist die Eingabe, die ihr an das Modell schickt.</p>
+          <p style="margin-top:.5rem;color:rgba(255,255,255,.8)"><span style="color:var(--accent);font-weight:700">Prompting</span> ist die Kunst, das Modell so anzuweisen, dass es die bestmögliche Antwort liefert.</p>
           <p style="margin-top:.5rem;color:rgba(255,255,255,.65);font-size:.82rem">Klare Anweisung → bessere Antwort. Vage Frage → schwammige Antwort.</p>
         </div>
         <div class="card gl">
@@ -1386,7 +1415,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
           <div class="card ol" style="padding:.7rem .85rem">
-            <h3 style="font-size:.78rem;color:var(--orange)">❌ Schlechter Prompt</h3>
+            <h3 style="font-size:.78rem;color:var(--accent)">❌ Schlechter Prompt</h3>
             <p style="font-size:.78rem;font-family:var(--mono);margin-top:.3rem">„erklär mir das"</p>
           </div>
           <div class="card gl" style="padding:.7rem .85rem">
@@ -1402,6 +1431,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 26 ÜBUNG A DEUTSCH VS ENGLISCH ═══ -->
 <div class="slide t-ex" data-sec="Block 2 · Übungen">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Übungen</span><span class="slide-no">26</span></div>
   </div>
   <div class="bd">
@@ -1444,6 +1474,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 27 ÜBUNG B PROMPT-QUALITÄT ═══ -->
 <div class="slide t-ex" data-sec="Block 2 · Übungen">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Übungen</span><span class="slide-no">27</span></div>
   </div>
   <div class="bd">
@@ -1454,7 +1485,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
         <div class="ex-box">
           <p class="fw7" style="margin-bottom:.6rem;color:var(--navy)">Aufgabe B.1 — „Kurz vs. Lang":</p>
           <div class="g2" style="gap:.5rem">
-            <div style="background:#fff0ee;border:1px solid #f5c9b3;border-radius:8px;padding:.6rem">
+            <div style="background:#eef3ff;border:1px solid #c7d6ff;border-radius:8px;padding:.6rem">
               <p class="txt-xs fw7 clr-o" style="margin-bottom:.3rem">Prompt A (kurz):</p>
               <p style="font-family:var(--mono);font-size:.77rem">„Tell me about space."</p>
             </div>
@@ -1493,6 +1524,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 28 ÜBUNG C HALLUZINATIONEN ═══ -->
 <div class="slide t-ex" data-sec="Block 2 · Übungen">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Übungen</span><span class="slide-no">28</span></div>
   </div>
   <div class="bd">
@@ -1543,6 +1575,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 29 WAS HABEN WIR GELERNT ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Reflexion">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Reflexion</span><span class="slide-no">29</span></div>
   </div>
   <div class="bd">
@@ -1557,7 +1590,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
           <li>Cloud vs. lokal: Datenschutz-Unterschied</li>
         </ul>
       </div>
-      <div class="card orange">
+      <div class="card accent">
         <h3>🔧 Technik gemacht</h3>
         <ul class="cl sm">
           <li>Linux-Terminal benutzt</li>
@@ -1586,6 +1619,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 30 WAS KANN DER PI NOCH ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Ausblick">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Ausblick</span><span class="slide-no">30</span></div>
   </div>
   <div class="bd">
@@ -1625,6 +1659,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 31 KI UND IHR ═══ -->
 <div class="slide t-con" data-sec="Block 2 · Ausblick">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Block 2 · Ausblick</span><span class="slide-no">31</span></div>
   </div>
   <div class="bd">
@@ -1669,6 +1704,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 32 FAZIT ═══ -->
 <div class="slide t-sec" data-sec="Fazit">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Fazit</span><span class="slide-no">32</span></div>
   </div>
   <div class="bd">
@@ -1692,6 +1728,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 33 DANKE ═══ -->
 <div class="slide t-title" data-sec="Ende">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Build Your Own AI</span><span class="slide-no">33</span></div>
   </div>
   <div class="bd">
@@ -1704,7 +1741,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
       <a class="chip" href="https://www.fabian-pingel.de" target="_blank">🌐 fabian-pingel.de</a>
       <a class="chip" href="https://github.com/fabianpingel/build-your-own-ai" target="_blank">🐙 github.com/fabianpingel/build-your-own-ai</a>
     </div>
-    <p class="meta">Workshop ermöglicht durch <strong style="color:var(--orange)">Linamar Plettenberg GmbH</strong> · Fabian Pingel · PINGEL AI Solutions</p>
+    <p class="meta">Workshop ermöglicht durch <strong style="color:var(--accent)">Linamar Plettenberg GmbH</strong> · Fabian Pingel · PINGEL AI Solutions</p>
   </div>
 </div>
 
@@ -1714,6 +1751,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 34 SECTION: RESERVE ═══ -->
 <div class="slide t-sec" data-sec="Reserve · Vertiefung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve</span><span class="slide-no">34</span></div>
   </div>
   <div class="bd">
@@ -1737,6 +1775,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 35 WIE LERNT EIN KI-MODELL ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Vertiefung</span><span class="slide-no">35</span></div>
   </div>
   <div class="bd">
@@ -1779,6 +1818,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 36 QUANTISIERUNG ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Vertiefung</span><span class="slide-no">36</span></div>
   </div>
   <div class="bd">
@@ -1788,9 +1828,9 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
         <div class="card navy" style="flex:1">
           <h3>🗜️ Das Problem</h3>
           <p>Ein unverkleinertes KI-Modell speichert jeden Parameter als 32-Bit-Zahl (sehr genau, aber groß).</p>
-          <p style="margin-top:.4rem;color:rgba(255,255,255,.75)">SmolLM2 mit 135 Mio. Parametern × 4 Byte = <strong style="color:var(--orange)">540 MB</strong> — zu groß für 512 MB RAM!</p>
+          <p style="margin-top:.4rem;color:rgba(255,255,255,.75)">SmolLM2 mit 135 Mio. Parametern × 4 Byte = <strong style="color:var(--accent)">540 MB</strong> — zu groß für 512 MB RAM!</p>
         </div>
-        <div class="card orange" style="flex:1">
+        <div class="card accent" style="flex:1">
           <h3>✂️ Die Lösung: Quantisierung</h3>
           <p>Zahlen werden <strong>weniger genau</strong> gespeichert (4-Bit statt 32-Bit). Das Modell wird kleiner, aber kaum schlechter.</p>
           <div style="background:rgba(255,255,255,.13);border-radius:6px;padding:.5rem .7rem;margin-top:.5rem">
@@ -1829,6 +1869,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 37 PI-HOLE VERTIEFUNG ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Vertiefung</span><span class="slide-no">37</span></div>
   </div>
   <div class="bd">
@@ -1837,10 +1878,10 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
       <div class="fc">
         <div class="card navy" style="flex:1">
           <h3>🌐 Wie funktioniert das Internet normalerweise?</h3>
-          <p style="color:rgba(255,255,255,.82)">Wenn ihr eine Website aufruft, fragt euer Computer zuerst: <em>„Wo ist diese Seite?"</em> — das ist ein <span style="color:var(--orange);font-weight:700">DNS-Request</span>.</p>
+          <p style="color:rgba(255,255,255,.82)">Wenn ihr eine Website aufruft, fragt euer Computer zuerst: <em>„Wo ist diese Seite?"</em> — das ist ein <span style="color:var(--accent);font-weight:700">DNS-Request</span>.</p>
           <p style="margin-top:.4rem;color:rgba(255,255,255,.65)">Auch Werbung kommt von eigenen Servern — und stellt vorher einen DNS-Request.</p>
         </div>
-        <div class="card orange" style="flex:1">
+        <div class="card accent" style="flex:1">
           <h3>🛡️ Was macht Pi-hole?</h3>
           <p>Pi-hole ist ein <strong>DNS-Server</strong> auf eurem Pi. Er beantwortet alle DNS-Anfragen im Netzwerk.</p>
           <p style="margin-top:.4rem;color:rgba(255,255,255,.85)">Bekannte Werbe-Adressen → Pi-hole sagt <strong>„Existiert nicht"</strong> → Werbung wird nie geladen.</p>
@@ -1869,6 +1910,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 38 GLOSSAR I ═══ -->
 <div class="slide t-con" data-sec="Reserve · Glossar">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Glossar</span><span class="slide-no">38</span></div>
   </div>
   <div class="bd">
@@ -1893,6 +1935,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 39 GLOSSAR II ═══ -->
 <div class="slide t-con" data-sec="Reserve · Glossar">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Glossar</span><span class="slide-no">39</span></div>
   </div>
   <div class="bd">
@@ -1917,6 +1960,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 40 GLOSSAR III ═══ -->
 <div class="slide t-con" data-sec="Reserve · Glossar">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Glossar</span><span class="slide-no">40</span></div>
   </div>
   <div class="bd">
@@ -1941,6 +1985,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 41 TROUBLESHOOTING ═══ -->
 <div class="slide t-con" data-sec="Reserve · Troubleshooting">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Troubleshooting</span><span class="slide-no">41</span></div>
   </div>
   <div class="bd">
@@ -2004,6 +2049,7 @@ code{background:#e8edf5;color:var(--navy);font-family:var(--mono);font-size:.82e
 <!-- ═══ 42 MEHR MODELLE ═══ -->
 <div class="slide t-con" data-sec="Reserve · Vertiefung">
   <div class="hd">
+    <a href="https://www.fabian-pingel.de" target="_blank"><img class="logo-p" src="../../images/logos/pingel-logo.png" alt="PINGEL AI Solutions"></a>
     <div class="hd-mid"><span class="sec-lbl">Reserve · Mehr Modelle</span><span class="slide-no">42</span></div>
   </div>
   <div class="bd">
